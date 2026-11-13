@@ -11,4 +11,11 @@ def add_expense(expenses,categories):
     categories.add(category)
     return expenses,categories
 
+def display_expenses(expenses):
+    print("\n---ALL EXPENSES----")
+    for expense in expenses:
+        date,category,amount=expense
+        print(date,category,amount)
+    return len(expenses)
+
 
