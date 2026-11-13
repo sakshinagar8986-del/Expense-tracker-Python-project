@@ -18,4 +18,11 @@ def display_expenses(expenses):
         print(date,category,amount)
     return len(expenses)
 
+def calculate_total(expenses):
+    total = 0
+    for expense in expenses:
+        total = total + expense[2]
+    return total
+
+
 
