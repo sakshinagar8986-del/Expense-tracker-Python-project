@@ -24,5 +24,11 @@ def calculate_total(expenses):
         total = total + expense[2]
     return total
 
+def recursive_total(expenses, index=0):
+    if index == len(expenses):
+        return 0
+    return expenses[index][2] + recursive_total(expenses, index + 1)
+
+
 
 
