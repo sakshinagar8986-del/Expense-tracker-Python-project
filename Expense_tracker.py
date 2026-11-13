@@ -7,7 +7,7 @@ def add_expense(expenses,categories):
     category=input("Enter category :").strip().title()
     amount=float(input("Enter amount:"))
     expense=(date,category,amount)
-    expenses.append()
+    expenses.append(expense)
     categories.add(category)
     return expenses,categories
 
