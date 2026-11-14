@@ -34,7 +34,6 @@ def max_expense(category_totals):
 def min_expense(category_totals):
     print("minimum expense:",min(category_totals  keys.get),":",min(category_totals))
 a=recursive_total(expenses,index=0)
-if (tracker[buget]<a:
     print("WARNING!")
     print("Your montly budget has been exceeded")
     print("Budget:",tracker[buget])
