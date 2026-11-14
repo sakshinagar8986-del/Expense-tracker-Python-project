@@ -18,16 +18,28 @@ def display_expenses(expenses):
         print(date,category,amount)
     return len(expenses)
 
-def calculate_total(expenses):
-    total = 0
-    for expense in expenses:
-        total = total + expense[2]
-    return total
-
 def recursive_total(expenses, index=0):
     if index == len(expenses):
         return 0
     return expenses[index][2] + recursive_total(expenses, index + 1)
+
+category_totals={}
+for category , amount in expenses[1:]:
+    if category in category_totals:
+        category_totals[category]+=amount
+    else:
+        category_totals[category]=amount
+def max_expense(category_totals):
+    print("maximum expense:",max(category_totals  keys.get),":",max(category_totals))
+def min_expense(category_totals):
+    print("minimum expense:",min(category_totals  keys.get),":",min(category_totals))
+a=recursive_total(expenses,index=0)
+if (tracker[buget]<a:
+    print("WARNING!")
+    print("Your montly budget has been exceeded")
+    print("Budget:",tracker[buget])
+    print("Spent:",a)
+    print("Exceeded by:"tracker[buget]-a)
 for category,amount in category_totals.items():
     print(category,end=" ")
     for i in range(amount//100):
