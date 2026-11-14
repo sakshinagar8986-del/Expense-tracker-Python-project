@@ -28,6 +28,11 @@ def recursive_total(expenses, index=0):
     if index == len(expenses):
         return 0
     return expenses[index][2] + recursive_total(expenses, index + 1)
+for category,amount in category_totals.items():
+    print(category,end=" ")
+    for i in range(amount//100):
+        print("*",end="")
+    print()
 
 
 
