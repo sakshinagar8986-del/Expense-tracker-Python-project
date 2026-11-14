@@ -24,7 +24,6 @@ def recursive_total(expenses, index=0):
     return expenses[index][2] + recursive_total(expenses, index + 1)
 
 category_totals={}
-for category , amount in expenses[1:]:
     if category in category_totals:
         category_totals[category]+=amount
     else:
@@ -36,7 +35,6 @@ def min_expense(category_totals):
 a=recursive_total(expenses,index=0)
     print("WARNING!")
     print("Your montly budget has been exceeded")
-    print("Budget:",tracker[buget])
     print("Spent:",a)
     print("Exceeded by:"tracker[buget]-a)
 for category,amount in category_totals.items():
