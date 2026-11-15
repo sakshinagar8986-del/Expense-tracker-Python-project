@@ -63,6 +63,31 @@ def recursive_total(expenses, index=0):
     if index == len(expenses):
         return 0
     return expenses[index][2] + recursive_total(expenses, index + 1)
+<<<<<<< HEAD
+=======
+
+category_totals={}
+    if category in category_totals:
+        category_totals[category]+=amount
+    else:
+        category_totals[category]=amount
+def max_expense(category_totals):
+    print("maximum expense:",max(category_totals  keys.get),":",max(category_totals))
+def min_expense(category_totals):
+    print("minimum expense:",min(category_totals  keys.get),":",min(category_totals))
+a=recursive_total(expenses,index=0)
+    print("WARNING!")
+    print("Your montly budget has been exceeded")
+    print("Spent:",a)
+    print("Exceeded by:"tracker[buget]-a)
+for category,amount in category_totals.items():
+    print(category,end=" ")
+    for i in range(amount//100):
+        print("*",end="")
+    print()
+
+
+>>>>>>> origin/main
 
 #category_totals={}
 # if category in category_totals:
