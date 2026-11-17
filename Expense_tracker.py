@@ -1,3 +1,4 @@
+import os
 import doctest
 from datetime import datetime
 
@@ -5,6 +6,8 @@ from datetime import datetime
 expenses=[]
 categories=set()
 tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_totals":{}}
+
+Filename="expense.txt"
 
 
 #Function for valid date
@@ -27,15 +30,11 @@ def valid_date(date):
 def add_expense(expenses,categories):
     print("\n---ADD NEW EXPENSE ---")
     
-    date=input("Enter date (DD-MM-YYYY):").strip()
-    if not valid_date(date):
-        print("Invalid date format")
-        return False
-        
+    date =valid_date()   
     category=input("Enter category :").strip().title()
-    if not category:
+    while not category:
         print("category cannot be empty")
-        return False
+        category=input("Enter category:").strip().title()
         
     amount=float(input("Enter amount:"))
     if amount<=0:
