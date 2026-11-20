@@ -1,21 +1,12 @@
 # Expense-tracker-Python-project
 this is our python project
 # Expense Tracker
-
-# 💰 Daily Expense Tracker
+#💰 Daily Expense Tracker
 
 <p align="center">
   <strong>A Python-Based Daily Expense Management System</strong>
   <br>
   Track Expenses • Analyze Spending • Manage Your Budget
-</p>
-
-<p align="center">
-  ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-  ![Project](https://img.shields.io/badge/Project-5-orange)
-  ![Group](https://img.shields.io/badge/Group-5-green)
-  ![Status](https://img.shields.io/badge/Status-Completed-success)
-  ![Course](https://img.shields.io/badge/Course-Python%20Programming-blueviolet)
 </p>
 
 ---
@@ -38,10 +29,10 @@ This project has been collaboratively developed by the following team members:
 
 | S. No. | Name | Roll Number |
 |---|---|---|
-| 1 | Sakshi Nagar | — |
+| 1 | Sakshi Nagar | 202610101200023|
 | 2 | Aman Kumar Barnwal | 202610101200004 |
-| 3 | Dipesh Kumar Kumawat | — |
-| 4 | Harsh Kushwaha | — |
+| 3 | Dipesh Kumar Kumawat | 202610101200037 |
+| 4 | Harsh Kushwaha | 2026101012000053 |
 
 ---
 
@@ -300,9 +291,9 @@ This command executes the doctest examples included in the functions.
 ## 📂 Project Structure
 
 ```text
-Daily-Expense-Tracker/
+Expense-tracker-Python-project
 │
-├── daily_expense_tracker.py
+├── Expense_tracker.py
 ├── expenses.txt
 └── README.md
 ```
