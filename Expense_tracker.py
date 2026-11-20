@@ -72,7 +72,7 @@ def categories_total(category,expenses):
                 category_total+=expense[2]
         categories_totals[category]=category_total
     else:
-        print("Category not added")
+        print("Categorybbjb not added")
 
                 
             
