@@ -2,12 +2,18 @@ import os
 import doctest
 from datetime import datetime
 
+# Monthly expense record file
+expense_file=open("expenses.txt","w+")
+print(expense_file.read())
+expense_file.close()
+
 #data structure
 expenses=[]
 categories=set()
-tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_totals":{}}
+category_totals={}
+tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_totals":category_totals}
 
-Filename="expense.txt"
+
 
 
 #Function for valid date
@@ -19,6 +25,7 @@ def valid_date(date):
     >>>valid_date("2026-11-15")
     False
     """
+    date=input("Enter Date (DD-MM-YYYY):")
     try:
         datetime.striptime(date,"%d-%m-%y")
         return True
@@ -44,6 +51,11 @@ def add_expense(expenses,categories):
     expense=(date,category,amount)
     expenses.append(expense)
     categories.add(category)
+
+    expense_file=open("expenses.txt","w+")
+    expense_file.write(tracker,expenses,categories)
+    expense_file.close()
+
     print("\n Expense added successfully")
     return True
     
@@ -62,17 +74,50 @@ def recursive_total(expenses, index=0):
     if index == len(expenses):
         return 0
     return expenses[index][2] + recursive_total(expenses, index + 1)
-    
-def categories_total(category,expenses):
-    categories_totals={}
+
+
+#dictionary for  total per category 
+for category in categories:
     category_total=0
-    for category in categories:
-        for expense in expenses:
-            if expense[1]==category:
-                category_total+=expense[2]
-        categories_totals[category]=category_total
+    for expense in expenses:
+        if expense[1]==category:
+            category_total+=expense[2]
+    category_totals[category]=category_total
+    
+#function for access category spending
+def category_total(category):
+    if category not in category_totals:
+        total_per_category=00
     else:
-        print("Categorybbjb not added")
+        total_per_category=category_totals[category]
+    return total_per_category
+
+
+print("=====CHOICES=====\n1.ADD EXPENSE\n2.DISPLAY_EXPENSE\n3.SHOW TOTAL SPENDING\n4.SHOW TOTAL PER CATEGORY")
+print("5.SHOW HIGHEST AND LOWEST EXPENSE\n=====================\n\n####>Make choices from(1,5)<####\n")
+user_choice=int(input("Enter your choice: "))
+if(user_choice==1):
+
+    add_exp=add_expense(expenses,categories)
+    print(add_exp)
+
+
+
+        
+
+
+
+    
+# def categories_total(category,expenses):
+#     categories_totals={}
+#     category_total=0
+#     for category in categories:
+#         for expense in expenses:
+#             if expense[1]==category:
+#                 category_total+=expense[2]
+#         categories_totals[category]=category_total
+#     else:
+#         print("Category not added")
 
                 
             
