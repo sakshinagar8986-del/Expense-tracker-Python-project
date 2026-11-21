@@ -308,11 +308,7 @@ while True:
 
 # ================= RUN DOCTEST =================
 
-if __name__ == "__main__":
-
-    doctest.testmod()
-
-    main()
+doctest.testmod()
 
 
 
