@@ -133,16 +133,26 @@ def highest_lowest(expenses):
 
 
 #Function for monthly budget
-# 10. Monthly budget warning
-def check_budget(total, budget):
-    print(f"\nMonthly Budget: Rs.{budget}")
-    print(f"Total Spending: Rs.{total:.2f}")
+def monthly_budget(expenses, budget):
+    current_month=datetime.now().month
+    current_year=datetime.now().year
+    monthly_total=0
 
-    if total > budget:
-        print("WARNING! You have exceeded your budget.")
+    for expense in expenses:
+        expense_date=datetime.strptime(expense[0],"%d-%m-%Y")
+        if expense.strptime(expense_date.month==current_month and expense_date.year==current_year):
+            monthly_total+=expense[2]
 
-    else:
-        print("You are within your budget.")
+        print("\nMonthly Budget:",budget)
+        print("Monthly Spending:",monthly_total)
+
+        if monthly_total>budget:
+            print("WARNING! Your monthly budget has been exceeded.")
+        else:
+            print("You are within your budget.")
+            
+
+
 
 
 #===MAIN PROGRAM====
@@ -182,6 +192,7 @@ while True:
         print(f"Total Spending: Rs.{total_exp:.2f}")
         
     elif(user_choice==4):
+
         category=input("Enter category for total spending:")
         total=category_total(category,category_totals)
         print(f"Total spending in {category} :Rs{total:.2f} ")
@@ -190,8 +201,7 @@ while True:
        highest_lowest(expenses)
 
     elif(user_choice==6):
-        total_exp= recursive_total(expenses)
-        check_budget(total_exp,tracker["budget"])
+        monthly_budget(expenses,tracker["budget"])
 
     elif(user_choice==7):
         save_expenses(expenses)
