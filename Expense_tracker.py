@@ -2,8 +2,8 @@ import os
 import doctest
 from datetime import datetime
 
+#============MAIN DATA STORE================
 
-#data structure
 expenses=[]
 categories=set()
 category_totals={}
@@ -11,7 +11,8 @@ tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_t
 
 
 
-#Function for valid date
+#============VALIDATE DATE==============
+
 def valid_date(date):
     """
     Valid date format.
@@ -28,7 +29,8 @@ def valid_date(date):
         return False
 
 
-# function to save expenses
+#=================== SAVE EXPENSES ==================
+
 def save_expenses(expenses):
     with open("expenses.txt","w") as file:
         for expense in expenses:
@@ -37,7 +39,8 @@ def save_expenses(expenses):
     print("Expense saved successfully!")
 
 
-# function to load expenses   
+#================= LOAD EXPENSES =================
+
 def load_expenses(expenses,categories):
     if os.path.exists("expenses.txt"):
         with open("expenses.txt","r") as file:
@@ -50,13 +53,13 @@ def load_expenses(expenses,categories):
     else:
         print("File does not exist")
 
-#function for access category spending
+#======================= UPDATE CATEGORY TOTAL ===================
 def update_category_totals(expenses,category_totals):
     """
     >>> totals = {}
-    >>> update_category_totals({("15-11-2026","Food",100.0),("16-111-2026","Food",50.0)],totals)
+    >>> update_category_totals([("15-11-2026","Food",100.0),("16-11-2026","Food",50.0)],totals)
     >>> totals
-    {'Food:150.0}
+    {'Food':150.0}
     """
     category_totals.clear()
 
@@ -69,7 +72,7 @@ def update_category_totals(expenses,category_totals):
         category_totals[category]+=amount
 
 
-# Function Add expense
+# ================= ADD EXPENSE =================
 
 def add_expense(expenses,categories):
     print("\n---ADD NEW EXPENSE ---")
@@ -99,7 +102,7 @@ def add_expense(expenses,categories):
     print("\n Expense added successfully")
     
     
-#Function Display All Expense
+# ================= DISPLAY ALL EXPENSES =================
 
 def display_expenses(expenses):
     """
@@ -120,8 +123,8 @@ def display_expenses(expenses):
         print(date,category,amount)
 
     
-    
-# Recurssion for Total Expense
+# ================= RECURSIVE TOTAL =================    
+
 def recursive_total(expenses, index=0):
     """
     >>> recursive_total([])
@@ -136,6 +139,12 @@ def recursive_total(expenses, index=0):
 
 #Function for every category spending
 def category_total(category):
+    """
+    >>> category_total("Food", {"Food": 150.0})
+    150.0
+    >>> category_total("Travel", {"Food": 150.0})
+    0
+    """
     if category not in category_totals:
         total_per_category=00
     else:
@@ -144,6 +153,15 @@ def category_total(category):
 
 #Function for Highest and Lowest Expense
 def highest_lowest(expenses):
+    """
+    >>> highest_lowest([])
+    No expense found
+    >>> highest_lowest([("15-11-2026", "Food", 100.0), ("16-11-2026", "Travel", 500.0)])
+    <BLANKLINE>
+     Highest Expense: ('16-11-2026', 'Travel', 500.0)
+    <BLANKLINE>
+     Lowest  Expense: ('15-11-2026', 'Food', 100.0)
+    """
     if(len(expenses)==0):
         print("No expense found")
         return
@@ -156,6 +174,19 @@ def highest_lowest(expenses):
 
 #Function for monthly budget
 def monthly_budget(expenses, budget):
+    """
+    >>> today = datetime.now().strftime("%d-%m-%Y")
+    >>> monthly_budget([(today, "Food", 300.0)], 1000)
+    <BLANKLINE>
+    Monthly Budget: 1000
+    Monthly Spending: 300.0
+    You are within your budget.
+    >>> monthly_budget([(today, "Food", 300.0)], 200)
+    <BLANKLINE>
+    Monthly Budget: 200
+    Monthly Spending: 300.0
+    WARNING! Your monthly budget has been exceeded.
+    """
     current_month=datetime.now().month
     current_year=datetime.now().year
     monthly_total=0
