@@ -102,6 +102,16 @@ def add_expense(expenses,categories):
 #Function Display All Expense
 
 def display_expenses(expenses):
+    """
+    >>>display_expenses([])
+    <BLANKLINE>
+    ---ALL EXPENSES---
+    No Expenses Found.
+    >>>display_expenses([("15-11-2026","Food",250.0)])
+    <BLANKLINE>
+    ---ALL EXPENSES---
+    15-11-2026 Food 250.0
+    """
     print("\n---ALL EXPENSES----")
     if (len(expenses)==0):
         print("No Expenses Found.")
