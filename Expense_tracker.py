@@ -298,7 +298,14 @@ while True:
     elif(user_choice==6):
         monthly_budget(expenses,tracker["budget"])
 
-    elif(user_choice==7):
+    elif choice == 7:
+
+            category_bar_chart(
+                tracker["category_totals"]
+            )
+        
+
+    elif(user_choice==8):
         save_expenses(expenses)
         print("Thank YOU!")
         break
