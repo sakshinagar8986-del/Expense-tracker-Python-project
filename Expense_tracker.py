@@ -146,7 +146,7 @@ def recursive_total(expenses, index=0):
     return expenses[index][2] + recursive_total(expenses, index + 1)
 
 
-#Function for every category spending
+# ================= CATEGORY TOTAL =================
 def category_total(category,category_totals):
     """
     >>> category_total("Food", {"Food": 150.0})
@@ -180,8 +180,7 @@ def highest_lowest(expenses):
     print("\n Highest Expense:",max_exp)
     print("\n Lowest  Expense:",min_exp)
 
-
-#Function for monthly budget
+# ================= MONTHLY BUDGET =================
 def monthly_budget(expenses, budget):
     """
     >>> today = datetime.now().strftime("%d-%m-%Y")
