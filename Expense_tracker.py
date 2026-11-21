@@ -2,8 +2,8 @@ import os
 import doctest
 from datetime import datetime
 
+#============MAIN DATA STORE================
 
-#data structure
 expenses=[]
 categories=set()
 category_totals={}
@@ -11,7 +11,8 @@ tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_t
 
 
 
-#Function for valid date
+#============VALIDATE DATE==============
+
 def valid_date(date):
     """
     Valid date format.
