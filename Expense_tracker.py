@@ -264,7 +264,9 @@ while True:
     print("4. SHOW TOTAL PER CATEGORY")
     print("5. SHOW HIGHEST AND LOWEST EXPENSE")
     print("6. CHECK MONTHLY BUDGET")
+    print("7. CATEGORY BAR CHART")
     print("7. EXIT")
+    
 
     print("=====================================")
     try:
