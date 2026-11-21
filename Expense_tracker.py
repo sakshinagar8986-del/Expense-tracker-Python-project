@@ -29,7 +29,8 @@ def valid_date(date):
         return False
 
 
-# function to save expenses
+#=================== SAVE EXPENSES ==================
+
 def save_expenses(expenses):
     with open("expenses.txt","w") as file:
         for expense in expenses:
@@ -38,7 +39,8 @@ def save_expenses(expenses):
     print("Expense saved successfully!")
 
 
-# function to load expenses   
+#================= LOAD EXPENSES =================
+
 def load_expenses(expenses,categories):
     if os.path.exists("expenses.txt"):
         with open("expenses.txt","r") as file:
@@ -51,7 +53,7 @@ def load_expenses(expenses,categories):
     else:
         print("File does not exist")
 
-#function for access category spending
+#======================= UPDATE CATEGORY TOTAL ===================
 def update_category_totals(expenses,category_totals):
     """
     >>> totals = {}
