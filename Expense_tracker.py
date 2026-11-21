@@ -136,6 +136,12 @@ def recursive_total(expenses, index=0):
 
 #Function for every category spending
 def category_total(category):
+    """
+    >>> category_total("Food", {"Food": 150.0})
+    150.0
+    >>> category_total("Travel", {"Food": 150.0})
+    0
+    """
     if category not in category_totals:
         total_per_category=00
     else:
