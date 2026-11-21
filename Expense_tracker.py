@@ -171,6 +171,19 @@ def highest_lowest(expenses):
 
 #Function for monthly budget
 def monthly_budget(expenses, budget):
+    """
+    >>> today = datetime.now().strftime("%d-%m-%Y")
+    >>> monthly_budget([(today, "Food", 300.0)], 1000)
+    <BLANKLINE>
+    Monthly Budget: 1000
+    Monthly Spending: 300.0
+    You are within your budget.
+    >>> monthly_budget([(today, "Food", 300.0)], 200)
+    <BLANKLINE>
+    Monthly Budget: 200
+    Monthly Spending: 300.0
+    WARNING! Your monthly budget has been exceeded.
+    """
     current_month=datetime.now().month
     current_year=datetime.now().year
     monthly_total=0
