@@ -1,7 +1,5 @@
-# Expense-tracker-Python-project
-This is our python project
-# Expense Tracker
-#💰 Daily Expense Tracker
+# 💰 Daily Expense Tracker
+### Python Programming Project
 
 <p align="center">
   <strong>A Python-Based Daily Expense Management System</strong>
