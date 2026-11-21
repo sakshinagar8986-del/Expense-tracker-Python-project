@@ -146,7 +146,7 @@ def recursive_total(expenses, index=0):
     return expenses[index][2] + recursive_total(expenses, index + 1)
 
 
-#Function for every category spending
+# ================= CATEGORY TOTAL =================
 def category_total(category,category_totals):
     """
     >>> category_total("Food", {"Food": 150.0})
@@ -180,8 +180,7 @@ def highest_lowest(expenses):
     print("\n Highest Expense:",max_exp)
     print("\n Lowest  Expense:",min_exp)
 
-
-#Function for monthly budget
+# ================= MONTHLY BUDGET =================
 def monthly_budget(expenses, budget):
     """
     >>> today = datetime.now().strftime("%d-%m-%Y")
@@ -213,6 +212,36 @@ def monthly_budget(expenses, budget):
     else:
         print("You are within your budget.")
             
+# ================= CATEGORY BAR CHART =================
+
+def category_bar_chart(category_totals):
+    """Print category spending using nested loops."""
+
+    print("\n--- CATEGORY SPENDING BAR CHART ---")
+    print("Each * represents Rs.100.")
+
+    if len(category_totals) == 0:
+        print("No category expenses found.")
+        return 0
+
+    # Outer loop: categories
+    for category in category_totals:
+
+        amount = category_totals[category]
+        star_count = int(amount // 100)
+
+        if amount > 0 and star_count == 0:
+            star_count = 1
+
+        print(category, end=" : ")
+
+        # Inner loop: print stars
+        for count in range(star_count):
+            print("*", end="")
+
+        print(f"  Rs.{amount:.2f}")
+
+    return len(category_totals)
 
 
 
@@ -277,8 +306,14 @@ while True:
     else:
         print("Please!,Enter correct Choice")
 
-#Run doctest
-doctest.testmod()
+# ================= RUN DOCTEST =================
+
+if __name__ == "__main__":
+
+    doctest.testmod()
+
+    main()
+
 
 
 
