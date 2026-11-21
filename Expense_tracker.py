@@ -34,7 +34,7 @@ def valid_date(date):
 def save_expenses(expenses):
     """Save all expenses in a text file."""
     try:
-        with open("expenses.txt", "w", encoding="utf-8") as file:
+        with open("expenses.txt", "w") as file:
             for expense in expenses:
                 date, category, amount = expense
                 file.write(f"{date}|{category}|{amount}\n")
@@ -180,8 +180,8 @@ def highest_lowest(expenses):
     print("\n Highest Expense:",max_exp)
     print("\n Lowest  Expense:",min_exp)
 
-# ================= MONTHLY BUDGET =================
-def monthly_budget(expenses, budget):
+# ================= MONTHLY SPENDING =================
+def monthly_spending(expenses, budget):
     """
     >>> today = datetime.now().strftime("%d-%m-%Y")
     >>> monthly_budget([(today, "Food", 300.0)], 1000)
@@ -208,7 +208,7 @@ def monthly_budget(expenses, budget):
     print("Monthly Spending:",monthly_total)
 
     if monthly_total>budget:
-        print("WARNING! Your monthly budget has been exceeded.")
+        print("WARNING! Your monthly spending has been exceeded.")
     else:
         print("You are within your budget.")
             
@@ -233,13 +233,7 @@ def category_bar_chart(category_totals):
         if amount > 0 and star_count == 0:
             star_count = 1
 
-        print(category, end=" : ")
-
-        # Inner loop: print stars
-        for count in range(star_count):
-            print("*", end="")
-
-        print(f"  Rs.{amount:.2f}")
+        print(f"{category:<15} : {''.join(['*' for count in range(star_count)]):<35}  Rs. {amount:>8.2f}")
 
     return len(category_totals)
 
@@ -263,7 +257,7 @@ while True:
     print("3. SHOW TOTAL SPENDING")
     print("4. SHOW TOTAL PER CATEGORY")
     print("5. SHOW HIGHEST AND LOWEST EXPENSE")
-    print("6. CHECK MONTHLY BUDGET")
+    print("6. CHECK MONTHLY SPENDING")
     print("7. CATEGORY BAR CHART")
     print("8. EXIT")
     
@@ -298,14 +292,11 @@ while True:
        highest_lowest(expenses)
 
     elif(user_choice==6):
-        monthly_budget(expenses,tracker["budget"])
+        monthly_spending(expenses,tracker["budget"])
 
     elif(user_choice == 7):
+        category_bar_chart(tracker["category_totals"])
 
-            category_bar_chart(
-                tracker["category_totals"]
-            )
-        
 
     elif(user_choice==8):
         save_expenses(expenses)
