@@ -72,7 +72,7 @@ def update_category_totals(expenses,category_totals):
         category_totals[category]+=amount
 
 
-# Function Add expense
+# ================= ADD EXPENSE =================
 
 def add_expense(expenses,categories):
     print("\n---ADD NEW EXPENSE ---")
@@ -102,7 +102,7 @@ def add_expense(expenses,categories):
     print("\n Expense added successfully")
     
     
-#Function Display All Expense
+# ================= DISPLAY ALL EXPENSES =================
 
 def display_expenses(expenses):
     """
@@ -123,8 +123,8 @@ def display_expenses(expenses):
         print(date,category,amount)
 
     
-    
-# Recurssion for Total Expense
+# ================= RECURSIVE TOTAL =================    
+
 def recursive_total(expenses, index=0):
     """
     >>> recursive_total([])
