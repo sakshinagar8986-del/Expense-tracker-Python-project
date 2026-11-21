@@ -195,11 +195,13 @@ Illustrative output:
 ```text
 ========== EXPENSE ANALYSIS ==========
 
-Food          : ********** 2500
-Travel        : *****      1200
-Shopping      : ********   2000
-Education     : ***         700
-Entertainment : **          500
+Each * represents Rs.100.
+Food : *************************  Rs.2535.00
+Travel : *****************  Rs.1739.00
+Saving : ************  Rs.1200.00
+Electricity : ********  Rs.800.00
+Movie : ******  Rs.600.00
+Shopping : **********************************  Rs.3400.00
 
 ======================================
 ```
