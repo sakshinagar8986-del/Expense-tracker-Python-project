@@ -306,8 +306,14 @@ while True:
     else:
         print("Please!,Enter correct Choice")
 
-#Run doctest
-doctest.testmod()
+# ================= RUN DOCTEST =================
+
+if __name__ == "__main__":
+
+    doctest.testmod()
+
+    main()
+
 
 
 
