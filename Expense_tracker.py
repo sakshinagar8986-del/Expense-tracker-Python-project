@@ -256,7 +256,7 @@ update_category_totals(expenses,category_totals)
 
 
 while True:
-    print("\n========== EXPENSE TRACKER ==========")
+    print("\n============== EXPENSE TRACKER ==============")
 
     print("1. ADD EXPENSE")
     print("2. DISPLAY ALL EXPENSES")
