@@ -123,6 +123,12 @@ def display_expenses(expenses):
     
 # Recurssion for Total Expense
 def recursive_total(expenses, index=0):
+    """
+    >>> recursive_total([])
+    0
+    >>> recursive_total(["15-11-2026","Food",100.0),("16-11-2026","Travel",50.5)])
+    150.5
+    """
     if index == len(expenses):
         return 0
     return expenses[index][2] + recursive_total(expenses, index + 1)
