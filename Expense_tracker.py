@@ -120,53 +120,92 @@ def category_total(category):
         total_per_category=category_totals[category]
     return total_per_category
 
+#Function for Highest and Lowest Expense
+def highest_lowest(expenses):
+    if(len(expenses)==0):
+        print("No expense found")
+        return
+
+    max_exp=max(expenses,key=lambda x:x[2])
+    min_exp=min(expenses,key=lambda x:x[2])
+    print("\n Highest Expense:",max_exp)
+    print("\n Lowest  Expense:",min_exp)
 
 
+#Function for monthly budget
+# 10. Monthly budget warning
+def check_budget(total, budget):
+    print(f"\nMonthly Budget: Rs.{budget}")
+    print(f"Total Spending: Rs.{total:.2f}")
+
+    if total > budget:
+        print("WARNING! You have exceeded your budget.")
+
+    else:
+        print("You are within your budget.")
 
 
+#===MAIN PROGRAM====
 
-    
+#Load pervious expenses
+load_expenses(expenses,categories)
+
+#update category dictionary
+update_category_totals(expenses,category_totals)
 
 
-print("=====CHOICES=====\n1.ADD EXPENSE\n2.DISPLAY_EXPENSE\n3.SHOW TOTAL SPENDING\n4.SHOW TOTAL PER CATEGORY")
-print("5.SHOW HIGHEST AND LOWEST EXPENSE\n6.Exit\n=====================\n\n####>Make choices from(1,5)<####\n")
 while True:
+    print("\n========== EXPENSE TRACKER ==========")
+
+    print("1. ADD EXPENSE")
+    print("2. DISPLAY ALL EXPENSES")
+    print("3. SHOW TOTAL SPENDING")
+    print("4. SHOW TOTAL PER CATEGORY")
+    print("5. SHOW HIGHEST AND LOWEST EXPENSE")
+    print("6. CHECK MONTHLY BUDGET")
+    print("7. EXIT")
+
+    print("=====================================")
+
     user_choice=int(input("Enter your choice: "))
+
     if(user_choice==1):
-        add_exp=add_expense(expenses,categories)
-        print(add_exp)
+        add_expense(expenses,categories)
+        update_category_totals(expenses,category_totals)
+        save_expenses(expenses)
+
     elif(user_choice==2):
-        display_exp=display_expenses(expenses)
-        print(display_exp)
+        display_expenses(expenses)
+        
     elif(user_choice==3):
         total_exp=recursive_total(expenses)
-        print(total_exp)
-        if tracker["budget"]<total_exp:
-            print("Warning!\n You expense exceeded from your budget")
+        print(f"Total Spending: Rs.{total_exp:.2f}")
+        
     elif(user_choice==4):
         category=input("Enter category for total spending:")
-        catg_total=category_total(category)
-        print(f"Total per {category} category:Rs{catg_total:.2f} ")
+        total=category_total(category,category_totals)
+        print(f"Total spending in {category} :Rs{total:.2f} ")
+
     elif(user_choice==5):
-        if len(expenses)==0:
-            print("No Expense found")
-        else:
-            max_exp=max(category_totals,key=category_totals.get)
-            min_exp=min(category_totals,key=category_totals.get)
-            print(f"Maximum expense is Rs{category_totals[max_exp]} of {max_exp}")
-            print(f"Minimum expense is Rs{category_totals[min_exp]} of {min_exp}")
+       highest_lowest(expenses)
+
     elif(user_choice==6):
+        total_exp= recursive_total(expenses)
+        check_budget(total_exp,tracker["budget"])
+
+    elif(user_choice==7):
+        save_expenses(expenses)
         print("Thank YOU!")
         break
+
     else:
         print("Please!,Enter correct Choice")
 
-def save_expenses(expenses):
-    with open("expenses.txt","w") as file:
-        for expense in expenses:
-            date,category,amount=expense
-            file.write(f"{date}|{category}|{amount}\n")
-    print("Expense saved successfully!")
+#Run Doctest
+doctest.testmode()
+
+
+
 
 
 
