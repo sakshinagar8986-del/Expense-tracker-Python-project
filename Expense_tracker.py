@@ -253,7 +253,7 @@ while True:
     elif(user_choice==4):
 
         category=input("Enter category for total spending:").strip().title()
-        total=category_total(category)
+        total=category_total(category,category_totals)
         print(f"Total spending in {category} :Rs{total:.2f} ")
 
     elif(user_choice==5):
