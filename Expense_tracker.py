@@ -15,9 +15,9 @@ tracker={"expenses": expenses,"categories":categories,"budget":10000,"category_t
 def valid_date(date):
     """
     Valid date format.
-    >>>valid_date("15-11-2026")
+    >>> valid_date("15-11-2026")
     True
-    >>>valid_date("2026-11-15")
+    >>> valid_date("2026-11-15")
     False
     """
     
@@ -103,11 +103,11 @@ def add_expense(expenses,categories):
 
 def display_expenses(expenses):
     """
-    >>>display_expenses([])
+    >>> display_expenses([])
     <BLANKLINE>
     ---ALL EXPENSES---
     No Expenses Found.
-    >>>display_expenses([("15-11-2026","Food",250.0)])
+    >>> display_expenses([("15-11-2026","Food",250.0)])
     <BLANKLINE>
     ---ALL EXPENSES---
     15-11-2026 Food 250.0
