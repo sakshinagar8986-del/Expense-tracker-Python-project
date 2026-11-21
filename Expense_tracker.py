@@ -265,7 +265,7 @@ while True:
     print("5. SHOW HIGHEST AND LOWEST EXPENSE")
     print("6. CHECK MONTHLY BUDGET")
     print("7. CATEGORY BAR CHART")
-    print("7. EXIT")
+    print("8. EXIT")
     
 
     print("=====================================")
