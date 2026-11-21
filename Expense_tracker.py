@@ -115,7 +115,7 @@ def display_expenses(expenses):
     ---ALL EXPENSES---
     15-11-2026 Food 250.0
     """
-    print("\n---ALL EXPENSES----")
+    print("\n---ALL EXPENSES---")
     if (len(expenses)==0):
         print("No Expenses Found.")
     for expense in expenses:
@@ -246,7 +246,7 @@ while True:
         
     elif(user_choice==4):
 
-        category=input("Enter category for total spending:")
+        category=input("Enter category for total spending:").strip().title()
         total=category_total(category)
         print(f"Total spending in {category} :Rs{total:.2f} ")
 
@@ -264,7 +264,7 @@ while True:
     else:
         print("Please!,Enter correct Choice")
 
-#Run Doctest
+#Run doctest
 doctest.testmod()
 
 
