@@ -150,6 +150,15 @@ def category_total(category):
 
 #Function for Highest and Lowest Expense
 def highest_lowest(expenses):
+    """
+    >>> highest_lowest([])
+    No expense found
+    >>> highest_lowest([("15-11-2026", "Food", 100.0), ("16-11-2026", "Travel", 500.0)])
+    <BLANKLINE>
+     Highest Expense: ('16-11-2026', 'Travel', 500.0)
+    <BLANKLINE>
+     Lowest  Expense: ('15-11-2026', 'Food', 100.0)
+    """
     if(len(expenses)==0):
         print("No expense found")
         return
