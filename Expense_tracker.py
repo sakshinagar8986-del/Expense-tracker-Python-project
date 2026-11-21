@@ -32,11 +32,20 @@ def valid_date(date):
 #=================== SAVE EXPENSES ==================
 
 def save_expenses(expenses):
-    with open("expenses.txt","w") as file:
-        for expense in expenses:
-            date,category,amount=expense
-            file.write(f"{date}|{category}|{amount}\n")
-    print("Expense saved successfully!")
+    """Save all expenses in a text file."""
+    try:
+        with open("expenses.txt", "w", encoding="utf-8") as file:
+            for expense in expenses:
+                date, category, amount = expense
+                file.write(f"{date}|{category}|{amount}\n")
+
+        print("Expenses saved successfully!")
+        return True
+
+    except OSError:
+        print("File error: Expenses could not be saved.")
+        return False
+
 
 
 #================= LOAD EXPENSES =================
