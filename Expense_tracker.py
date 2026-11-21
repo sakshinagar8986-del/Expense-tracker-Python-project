@@ -244,8 +244,6 @@ while True:
         print("Invalid input! Please enter a number between 1 and 7.")
         continue
 
-    if (user_choice == 1):
-
 
     if(user_choice==1):
         add_expense(expenses,categories)
