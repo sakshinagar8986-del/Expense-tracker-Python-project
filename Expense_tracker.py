@@ -162,16 +162,16 @@ def monthly_budget(expenses, budget):
 
     for expense in expenses:
         expense_date=datetime.strptime(expense[0],"%d-%m-%Y")
-        if expense.strptime(expense_date.month==current_month and expense_date.year==current_year):
+        if (expense_date.month==current_month and expense_date.year==current_year):
             monthly_total+=expense[2]
 
-        print("\nMonthly Budget:",budget)
-        print("Monthly Spending:",monthly_total)
+    print("\nMonthly Budget:",budget)
+    print("Monthly Spending:",monthly_total)
 
-        if monthly_total>budget:
-            print("WARNING! Your monthly budget has been exceeded.")
-        else:
-            print("You are within your budget.")
+    if monthly_total>budget:
+        print("WARNING! Your monthly budget has been exceeded.")
+    else:
+        print("You are within your budget.")
             
 
 
@@ -216,7 +216,7 @@ while True:
     elif(user_choice==4):
 
         category=input("Enter category for total spending:")
-        total=category_total(category,category_totals)
+        total=category_total(category)
         print(f"Total spending in {category} :Rs{total:.2f} ")
 
     elif(user_choice==5):
@@ -234,7 +234,7 @@ while True:
         print("Please!,Enter correct Choice")
 
 #Run Doctest
-doctest.testmode()
+doctest.testmod()
 
 
 
