@@ -217,7 +217,7 @@ def monthly_budget(expenses, budget):
 def category_bar_chart(category_totals):
     """Print category spending using nested loops."""
 
-    print("\n--- CATEGORY SPENDING BAR CHART ---")
+    print("\n========= CATEGORY SPENDING BAR CHART =========")
     print("Each * represents Rs.100.")
 
     if len(category_totals) == 0:
