@@ -229,8 +229,14 @@ while True:
     print("7. EXIT")
 
     print("=====================================")
+    try:
+        user_choice = int(input("Enter your choice: "))
+    except ValueError:
+        print("Invalid input! Please enter a number between 1 and 7.")
+        continue
 
-    user_choice=int(input("Enter your choice: "))
+    if (user_choice == 1):
+
 
     if(user_choice==1):
         add_expense(expenses,categories)
