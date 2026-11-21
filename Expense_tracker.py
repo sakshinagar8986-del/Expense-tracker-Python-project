@@ -68,7 +68,7 @@ def update_category_totals(expenses,category_totals):
     >>> totals = {}
     >>> update_category_totals([("15-11-2026","Food",100.0),("16-11-2026","Food",50.0)],totals)
     >>> totals
-    {'Food':150.0}
+    {'Food': 150.0}
     """
     category_totals.clear()
 
