@@ -1,5 +1,5 @@
 # Expense-tracker-Python-project
-this is our python project
+This is our python project
 # Expense Tracker
 #💰 Daily Expense Tracker
 
@@ -32,7 +32,7 @@ This project has been collaboratively developed by the following team members:
 | 1 | Sakshi Nagar | 202610101200023|
 | 2 | Aman Kumar Barnwal | 202610101200004 |
 | 3 | Dipesh Kumar Kumawat | 202610101200037 |
-| 4 | Harsh Kushwaha | 2026101012000053 |
+| 4 | Harsh Kushwaha | 202610101200053 |
 
 ---
 
