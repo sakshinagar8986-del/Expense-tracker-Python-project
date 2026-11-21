@@ -138,7 +138,7 @@ def recursive_total(expenses, index=0):
 
 
 #Function for every category spending
-def category_total(category):
+def category_total(category,category_totals):
     """
     >>> category_total("Food", {"Food": 150.0})
     150.0
