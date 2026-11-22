@@ -107,8 +107,7 @@ def add_expense(expenses,categories):
     expense=(date,category,amount)
     expenses.append(expense)
     categories.add(category)
-
-    print("\n Expense added successfully")
+    
     
     
 # ================= DISPLAY ALL EXPENSES =================
