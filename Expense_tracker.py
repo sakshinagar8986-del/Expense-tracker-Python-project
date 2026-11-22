@@ -83,32 +83,32 @@ def update_category_totals(expenses,category_totals):
 
 # ================= ADD EXPENSE =================
 
-def add_expense(expenses,categories):
+def add_expense(expenses, categories):
     print("\n---ADD NEW EXPENSE ---")
 
-    date=input("Enter Date (DD-MM-YYYY):")
-    while not  valid_date(date) : 
+    date = input("Enter Date (DD-MM-YYYY): ")
+    while not valid_date(date):
         print("Invalid date! Enter correct date.")
-        date = input("Enter Date (DD-MM-YYYY):")
+        date = input("Enter Date (DD-MM-YYYY): ")
 
-    category=input("Enter category :").strip().title()
+    category = input("Enter category: ").strip().title()
     while not category:
-        print("category cannot be empty")
-        category=input("Enter category:").strip().title()
-    try:    
-        amount=float(input("Enter amount:"))
-        if amount<=0:
-            print("Amount should be postive")
-            return 
-    except ValueError:
-        print("Please enter a valid number")
-        return
-    
-    expense=(date,category,amount)
-    expenses.append(expense)
+        print("Category cannot be empty")
+        category = input("Enter category: ").strip().title()
+
+    while True:
+        try:
+            amount = float(input("Enter amount: "))
+            if amount > 0:
+                break
+            print("Amount should be positive")
+        except ValueError:
+            print("Please enter a valid number")
+
+    expenses.append((date, category, amount))
     categories.add(category)
 
-    print("\n Expense added successfully")
+    print("\nExpense added successfully")
     
     
 # ================= DISPLAY ALL EXPENSES =================
