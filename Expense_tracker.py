@@ -160,7 +160,8 @@ def category_total(category,category_totals):
         total_per_category=category_totals[category]
     return total_per_category
 
-#Function for Highest and Lowest Expense
+
+#=========Function for Highest and Lowest Expense==============
 def highest_lowest(expenses):
     """
     >>> highest_lowest([])
@@ -175,10 +176,13 @@ def highest_lowest(expenses):
         print("No expense found")
         return
 
-    max_exp=max(expenses,key=lambda x:x[2])
-    min_exp=min(expenses,key=lambda x:x[2])
+    max_amount=max(expenses,key=lambda x:x[2])[2]
+    max_exp = [x for x in expenses if x[2] == max_amount]
+    min_amount=min(expenses,key=lambda x:x[2])[2]
+    min_exp = [x for x in expenses if x[2] == min_amount]
     print("\n Highest Expense:",max_exp)
     print("\n Lowest  Expense:",min_exp)
+    
 
 # ================= MONTHLY SPENDING =================
 def monthly_spending(expenses, budget):
