@@ -65,9 +65,9 @@ def load_expenses(expenses,categories):
 #======================= UPDATE CATEGORY TOTAL ===================
 def update_category_totals(expenses,category_totals):
     """
-    >>> totals = {}
-    >>> update_category_totals([("15-11-2026","Food",100.0),("16-11-2026","Food",50.0)],totals)
-    >>> totals
+    >>> category_totals = {}
+    >>> update_category_totals([("15-11-2026","Food",100.0),("16-11-2026","Food",50.0)],category_totals)
+    >>> category_totals
     {'Food': 150.0}
     """
     category_totals.clear()
@@ -184,16 +184,16 @@ def highest_lowest(expenses):
 def monthly_spending(expenses, budget):
     """
     >>> today = datetime.now().strftime("%d-%m-%Y")
-    >>> monthly_budget([(today, "Food", 300.0)], 1000)
+    >>> monthly_spending([(today, "Food", 300.0)], 1000)
     <BLANKLINE>
     Monthly Budget: 1000
     Monthly Spending: 300.0
     You are within your budget.
-    >>> monthly_budget([(today, "Food", 300.0)], 200)
+    >>> monthly_spending([(today, "Food", 300.0)], 200)
     <BLANKLINE>
     Monthly Budget: 200
     Monthly Spending: 300.0
-    WARNING! Your monthly budget has been exceeded.
+    WARNING! Your monthly spending has been exceeded.
     """
     current_month=datetime.now().month
     current_year=datetime.now().year
@@ -266,7 +266,7 @@ while True:
     try:
         user_choice = int(input("Enter your choice: "))
     except ValueError:
-        print("Invalid input! Please enter a number between 1 and 7.")
+        print("Invalid input! Please enter a number between 1 and 8.")
         continue
 
 
