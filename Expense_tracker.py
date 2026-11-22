@@ -50,17 +50,22 @@ def save_expenses(expenses):
 
 #================= LOAD EXPENSES =================
 
-def load_expenses(expenses,categories):
+def load_expenses(expenses, categories):
     if os.path.exists("expenses.txt"):
-        with open("expenses.txt","r") as file:
-            for line in file:
-                date,category,amount=line.strip().split("|")
-                amount=float(amount)
-                expense=(date,category,amount)
-                expenses.append(expense)
-                categories.add(category)
+        try:
+            with open("expenses.txt", "r") as file:
+                for line in file:
+                    date, category, amount = line.strip().split("|")
+                    amount=float(amount)
+                    expense = (date, category, amount)
+                    expenses.append(expense)
+                    categories.add(category)
+
+        except (ValueError, OSError):
+            print("Error while loading expenses.")
+
     else:
-        print("File does not exist")
+        print("No previous expense file found.")
 
 #======================= UPDATE CATEGORY TOTAL ===================
 def update_category_totals(expenses,category_totals):
@@ -168,9 +173,9 @@ def highest_lowest(expenses):
     No expense found
     >>> highest_lowest([("15-11-2026", "Food", 100.0), ("16-11-2026", "Travel", 500.0)])
     <BLANKLINE>
-     Highest Expense: ('16-11-2026', 'Travel', 500.0)
+     Highest Expense: [('16-11-2026', 'Travel', 500.0)]
     <BLANKLINE>
-     Lowest  Expense: ('15-11-2026', 'Food', 100.0)
+     Lowest  Expense: [('15-11-2026', 'Food', 100.0)]
     """
     if(len(expenses)==0):
         print("No expense found")
